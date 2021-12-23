@@ -172,7 +172,7 @@ function metrics {
     'IP')
         iipeth0=$(ifconfig eth0 | grep -o -P '(?<=inet ).*(?=  netmask)')
         iipwlan0=$(ifconfig wlan0 | grep -o -P '(?<=inet ).*(?=  netmask)')
-	eip=$(wget -q -O - http://icanhazip.com/ | tail)
+	eip=$(curl -s http://icanhazip.com/)
 	displayMessage 'Internal IP........:' "${iipeth0} (eth0), ${iipwlan0} (wlan0)"
 	displayMessage 'External IP........:' "${eip}"
 	;;
